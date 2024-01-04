@@ -9,7 +9,7 @@ export const create = async (req, res) => {
         }
 
         const saveData = await userData.save();
-        res.status(200).json(saveData);
+        res.status(200).json( {msg: "User created succesfully"});
 
     } catch (error) {
         res.status(500).json({error: error})
@@ -56,7 +56,7 @@ export const update = async(req, res) => {
         }
 
         const updatedData = await User.findByIdAndUpdate(id, req.body, {new: true})
-        res.status(200).json(updatedData);
+        res.status(200).json({msg: "User updated succesfully"});
     } catch(error) {
         res.status(500).json({error: error});
     }
